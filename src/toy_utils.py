@@ -66,7 +66,7 @@ def get_levels(Z, num_levels, upper_bound=False):
     Here: outside of the areas contain powers of two of total mass"""
     density_vals = Z.flatten()
     powers = np.array([2 ** (-float(i)) for i in np.arange(1, num_levels+1)])
-    levels = [get_threshold(density_vals=density_vals, threshold=.68)]
+    levels = [get_threshold(density_vals=density_vals, threshold=.7)]
     if upper_bound:
         levels += [1e6]
     return levels

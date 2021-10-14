@@ -19,3 +19,4 @@ Figures of the paper are created in the exp/fig_* files:
     fig_toy_example.ipynb : example_priors.pdf (Figure 3a) and example_posteriors.pdf (Figure 3b)
     fig_abc.ipynb : prior_vs_laplace.tex (Figure 4)
     fig_volatility.ipynb : timeseries_summary.pdf (Figure 5)
+    fig_measuring_incompatibility.ipynb : compatible.pdf (Figure 7a) and incompatible.pdf (Figure 7b)
