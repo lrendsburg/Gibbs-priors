@@ -45,6 +45,17 @@ def get_gibbs_prior_covariance(Sigma_0, Sigma, n, method, K=500):
     Sigma_G = Sigma_G_vec.reshape(d, d)
     return Sigma_G
 
+def get_posterior_covariances(Sigma_0, Sigma, n, method):
+    """Compute covariance matrices of posterior and approximation."""
+    assert method in ['inner', 'outer'], "Method needs to be 'inner' or 'outer'."
+    d = Sigma.shape[0]
+    Sigma_n = inv(inv(Sigma_0) + n * inv(Sigma))
+    if method == 'inner':
+        Lambda_n = inv(inv(Sigma_n) * np.eye(d))
+    elif method == 'outer':
+        Lambda_n = Sigma_n * np.eye(d)
+    return Sigma_n, Lambda_n
+
 def get_threshold(density_vals, threshold):
     """Given a list of (unnormalized) density_vals=(f_1,...,f_n) and a threshold t, find the value
     g such that sum_{i: f_i<g}f_i/Z\approx t, where Z is the normalization constant.
